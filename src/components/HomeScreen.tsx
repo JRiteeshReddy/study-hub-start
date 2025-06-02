@@ -1,54 +1,73 @@
 
 import React from 'react';
-import CourseCard from './CourseCard';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface HomeScreenProps {
   onStartCourse: () => void;
   onTakeExam: () => void;
+  isExamUnlocked?: boolean;
 }
 
-const HomeScreen = ({ onStartCourse, onTakeExam }: HomeScreenProps) => {
+const HomeScreen = ({ onStartCourse, onTakeExam, isExamUnlocked = false }: HomeScreenProps) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl">
-        {/* Header */}
-        <div className="text-center mb-12 animate-fade-in">
+      <div className="max-w-4xl w-full">
+        <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Welcome to Your Course
+            Welcome to Your Learning Journey
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Choose your learning path. Start with the course content or test your knowledge with the exam.
+          <p className="text-lg text-gray-600">
+            Choose your next step
           </p>
         </div>
 
-        {/* Course Options */}
-        <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <CourseCard
-              title="Start the Course"
-              emoji="🧠"
-              onClick={onStartCourse}
-            />
-          </div>
-          
-          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <CourseCard
-              title="Take the Course Exam"
-              emoji="📚"
-              disabled={true}
-              disabledMessage="Complete course to unlock"
-              onClick={onTakeExam}
-            />
-          </div>
-        </div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          {/* Start Course Button */}
+          <Card className="transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+            <CardContent className="p-8 text-center">
+              <div className="text-6xl mb-4">🧠</div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Start the Course
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Begin your learning journey with interactive lessons
+              </p>
+              <Button 
+                onClick={onStartCourse}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 transition-colors"
+                size="lg"
+              >
+                Start Learning
+              </Button>
+            </CardContent>
+          </Card>
 
-        {/* Progress indicator placeholder */}
-        <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <div className="inline-block bg-white rounded-full px-6 py-3 shadow-md">
-            <p className="text-sm text-gray-600">
-              Progress: <span className="font-semibold">0% Complete</span>
-            </p>
-          </div>
+          {/* Course Exam Button */}
+          <Card className={`transition-all duration-300 ${
+            isExamUnlocked ? 'hover:scale-105 hover:shadow-lg cursor-pointer' : 'opacity-50'
+          }`}>
+            <CardContent className="p-8 text-center">
+              <div className="text-6xl mb-4">📚</div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Take the Course Exam
+              </h2>
+              <p className="text-gray-600 mb-6">
+                {isExamUnlocked 
+                  ? 'Test your knowledge with the final exam'
+                  : 'Complete course to unlock'
+                }
+              </p>
+              <Button 
+                onClick={isExamUnlocked ? onTakeExam : undefined}
+                disabled={!isExamUnlocked}
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                size="lg"
+              >
+                {isExamUnlocked ? 'Start Exam' : 'Locked'}
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
