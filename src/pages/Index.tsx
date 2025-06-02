@@ -1,10 +1,12 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginScreen from '@/components/LoginScreen';
 import HomeScreen from '@/components/HomeScreen';
 
 const Index = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     setIsAuthenticated(true);
@@ -12,7 +14,7 @@ const Index = () => {
 
   const handleStartCourse = () => {
     console.log('Starting course...');
-    // TODO: Navigate to course content
+    navigate('/course');
   };
 
   const handleTakeExam = () => {
