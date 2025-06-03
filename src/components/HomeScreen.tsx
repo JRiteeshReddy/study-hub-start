@@ -2,6 +2,8 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/contexts/AuthContext';
+import { LogOut } from 'lucide-react';
 
 interface HomeScreenProps {
   onStartCourse: () => void;
@@ -10,9 +12,26 @@ interface HomeScreenProps {
 }
 
 const HomeScreen = ({ onStartCourse, onTakeExam, isExamUnlocked = false }: HomeScreenProps) => {
+  const { signOut, user } = useAuth();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
       <div className="max-w-4xl w-full">
+        {/* Header with user info and logout */}
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <p className="text-gray-600">Welcome back, {user?.email}</p>
+          </div>
+          <Button 
+            onClick={signOut}
+            variant="outline"
+            className="flex items-center gap-2"
+          >
+            <LogOut size={16} />
+            Logout
+          </Button>
+        </div>
+
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Welcome to Your Learning Journey

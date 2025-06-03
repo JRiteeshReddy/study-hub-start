@@ -1,23 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginScreen from '@/components/LoginScreen';
+import { useAuth } from '@/contexts/AuthContext';
+import { useProgress } from '@/hooks/useProgress';
+import AuthScreen from '@/components/AuthScreen';
 import HomeScreen from '@/components/HomeScreen';
 
 const Index = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isCourseCompleted, setIsCourseCompleted] = useState(false);
+  const { user, loading } = useAuth();
+  const { isCourseCompleted } = useProgress();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Check if course is completed
-    const courseCompleted = localStorage.getItem('courseCompleted') === 'true';
-    setIsCourseCompleted(courseCompleted);
-  }, []);
-
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-  };
 
   const handleStartCourse = () => {
     console.log('Starting course...');
@@ -25,21 +17,29 @@ const Index = () => {
   };
 
   const handleTakeExam = () => {
-    if (isCourseCompleted) {
+    if (isCourseCompleted()) {
       console.log('Taking exam...');
       // TODO: Navigate to exam page when created
     }
   };
 
-  if (!isAuthenticated) {
-    return <LoginScreen onLogin={handleLogin} />;
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <AuthScreen />;
   }
 
   return (
     <HomeScreen 
       onStartCourse={handleStartCourse}
       onTakeExam={handleTakeExam}
-      isExamUnlocked={isCourseCompleted}
+      isExamUnlocked={isCourseCompleted()}
     />
   );
 };
