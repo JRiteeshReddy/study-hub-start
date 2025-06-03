@@ -28,7 +28,6 @@ const ChapterNavigation = ({ currentChapter, completedChapters }: ChapterNavigat
 
   const handleChapterClick = (chapterIndex: number) => {
     const chapterNumber = chapterIndex + 1;
-    // Only allow navigation to completed chapters or the next available chapter
     if (completedChapters.includes(chapterNumber) || chapterNumber <= Math.max(...completedChapters, 0) + 1) {
       navigate(`/chapter/${chapterNumber}`);
     }
@@ -39,13 +38,13 @@ const ChapterNavigation = ({ currentChapter, completedChapters }: ChapterNavigat
       <DropdownMenuTrigger asChild>
         <Button 
           variant="outline" 
-          className="flex items-center gap-2 bg-slate-800/50 border-slate-600 hover:bg-slate-700/50 text-white rounded-xl px-6 py-3"
+          className="modern-button-outline flex items-center gap-2 px-6 py-3"
         >
           Chapters
           <ChevronDown size={16} />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-96 bg-slate-800/95 backdrop-blur-xl border-slate-700 rounded-xl shadow-2xl">
+      <DropdownMenuContent className="w-96 bg-black/95 backdrop-blur-xl border-white/20 rounded-xl shadow-2xl">
         {chapters.map((chapter, index) => {
           const chapterNumber = index + 1;
           const isCompleted = completedChapters.includes(chapterNumber);
@@ -58,16 +57,16 @@ const ChapterNavigation = ({ currentChapter, completedChapters }: ChapterNavigat
               onClick={() => handleChapterClick(index)}
               disabled={!isAccessible}
               className={`p-4 cursor-pointer rounded-lg mx-2 my-1 ${
-                isCurrent ? 'bg-blue-500/20 text-blue-400' : 'text-white'
+                isCurrent ? 'bg-white/20 text-white' : 'text-white'
               } ${
-                !isAccessible ? 'opacity-50 cursor-not-allowed' : 'hover:bg-slate-700/50'
+                !isAccessible ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/10'
               }`}
             >
               <div className="flex items-center gap-4 w-full">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm ${
-                  isCompleted ? 'bg-green-500/20 text-green-400' : 
-                  isCurrent ? 'bg-blue-500/20 text-blue-400' : 
-                  'bg-slate-700 text-slate-400'
+                  isCompleted ? 'bg-white text-black' : 
+                  isCurrent ? 'bg-white/20 text-white' : 
+                  'bg-gray-800 text-gray-400'
                 }`}>
                   {isCompleted ? (
                     <CheckCircle size={16} />
@@ -78,7 +77,7 @@ const ChapterNavigation = ({ currentChapter, completedChapters }: ChapterNavigat
                   )}
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs text-slate-400 mb-1">Chapter {chapterNumber}</div>
+                  <div className="text-xs text-gray-400 mb-1">Chapter {chapterNumber}</div>
                   <div className="text-sm font-medium leading-tight">{chapter}</div>
                 </div>
               </div>
