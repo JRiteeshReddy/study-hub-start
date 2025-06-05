@@ -1,9 +1,8 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useProgress } from '@/hooks/useProgress';
-import { BookOpen, Trophy, Clock, Target, Zap } from 'lucide-react';
+import { BookOpen, Trophy } from 'lucide-react';
 import ProfileDropdown from './ProfileDropdown';
 
 interface HomeScreenProps {
@@ -110,30 +109,6 @@ const HomeScreen = ({
             </div>
           </div>
 
-          {/* Progress Section */}
-          {completedChapters.length > 0 && (
-            <div className="glass-card p-6 sm:p-8 mb-12 sm:mb-16 max-w-2xl mx-auto card-hover-effect">
-              <div className="flex items-center gap-4 mb-6">
-                <Clock className="text-white" size={24} />
-                <h3 className="text-xl sm:text-2xl font-semibold text-white">Your Progress</h3>
-              </div>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex-1 bg-gray-800 rounded-full h-3 sm:h-4 overflow-hidden progress-bar-glow">
-                  <div 
-                    className="h-full bg-white transition-all duration-1000 rounded-full" 
-                    style={{ width: `${progressPercentage}%` }}
-                  />
-                </div>
-                <span className="text-white font-semibold text-sm sm:text-base">
-                  {completedChapters.length}/5 Chapters
-                </span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                {progressPercentage}% Complete
-              </p>
-            </div>
-          )}
-
           {/* Action Cards */}
           <div className="responsive-grid max-w-4xl mx-auto">
             {/* Start Course Card */}
@@ -143,7 +118,7 @@ const HomeScreen = ({
                   <BookOpen className="mx-auto text-white floating-element" size={48} />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
-                  Start Learning
+                  Basics of AI in Web Development
                 </h2>
                 <p className="text-gray-400 mb-6 sm:mb-8 text-base sm:text-lg">
                   Begin your journey with interactive AI development lessons
