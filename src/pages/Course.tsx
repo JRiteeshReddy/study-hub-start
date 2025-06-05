@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -70,8 +69,8 @@ const Course = () => {
 
           {/* Course Header */}
           <div className="text-center mb-8 sm:mb-12">
-            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 hero-text">
-              AI Development Course
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
+              Basics of AI
             </h1>
             <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8">
               Master the tools that are shaping the future of software development
