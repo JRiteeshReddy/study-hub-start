@@ -1,8 +1,9 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useProgress } from '@/hooks/useProgress';
-import { BookOpen, Trophy } from 'lucide-react';
+import { BookOpen, Trophy, Target, Zap } from 'lucide-react';
 import ProfileDropdown from './ProfileDropdown';
 
 interface HomeScreenProps {
