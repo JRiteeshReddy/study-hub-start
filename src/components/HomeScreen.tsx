@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useProgress } from '@/hooks/useProgress';
-import { BookOpen, Trophy, Clock, Sparkles, Zap, Target } from 'lucide-react';
+import { BookOpen, Trophy, Clock, Target, Zap } from 'lucide-react';
 import ProfileDropdown from './ProfileDropdown';
 
 interface HomeScreenProps {
@@ -20,14 +20,49 @@ const HomeScreen = ({
   const { getCompletedChapters } = useProgress();
   const completedChapters = getCompletedChapters();
   const progressPercentage = completedChapters.length / 5 * 100;
+  const circlesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!circlesRef.current) return;
+      
+      const circles = circlesRef.current.querySelectorAll('.dynamic-circle');
+      const { clientX, clientY } = e;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      
+      circles.forEach((circle, index) => {
+        const element = circle as HTMLElement;
+        const speed = (index % 3 + 1) * 0.02;
+        const distance = Math.sqrt(Math.pow(clientX - centerX, 2) + Math.pow(clientY - centerY, 2));
+        const maxDistance = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2));
+        const influence = Math.max(0, 1 - distance / maxDistance);
+        
+        const offsetX = (clientX - centerX) * speed * influence;
+        const offsetY = (clientY - centerY) * speed * influence;
+        
+        element.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   return (
     <div className="min-h-screen bg-black page-transition relative">
-      {/* Floating decorative elements */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/20 rounded-full floating-element"></div>
-        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-white/30 rounded-full floating-element delayed-animation"></div>
-        <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-white/10 rounded-full floating-element" style={{animationDelay: '4s'}}></div>
+      {/* Dynamic floating circles */}
+      <div ref={circlesRef} className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="dynamic-circle absolute top-1/4 left-1/4 w-3 h-3 bg-white/10 rounded-full floating-element"></div>
+        <div className="dynamic-circle absolute top-1/3 right-1/3 w-2 h-2 bg-white/15 rounded-full floating-element delayed-animation"></div>
+        <div className="dynamic-circle absolute top-3/4 right-1/4 w-4 h-4 bg-white/8 rounded-full floating-element" style={{animationDelay: '2s'}}></div>
+        <div className="dynamic-circle absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-white/20 rounded-full floating-element" style={{animationDelay: '4s'}}></div>
+        <div className="dynamic-circle absolute top-1/6 left-1/2 w-5 h-5 bg-white/6 rounded-full floating-element" style={{animationDelay: '1s'}}></div>
+        <div className="dynamic-circle absolute bottom-1/4 left-1/6 w-2.5 h-2.5 bg-white/12 rounded-full floating-element" style={{animationDelay: '3s'}}></div>
+        <div className="dynamic-circle absolute top-2/3 left-1/3 w-1 h-1 bg-white/25 rounded-full floating-element" style={{animationDelay: '5s'}}></div>
+        <div className="dynamic-circle absolute bottom-1/3 right-1/2 w-3.5 h-3.5 bg-white/7 rounded-full floating-element" style={{animationDelay: '6s'}}></div>
+        <div className="dynamic-circle absolute top-1/5 right-1/5 w-2 h-2 bg-white/18 rounded-full floating-element" style={{animationDelay: '2.5s'}}></div>
+        <div className="dynamic-circle absolute bottom-1/6 left-2/3 w-1.5 h-1.5 bg-white/14 rounded-full floating-element" style={{animationDelay: '4.5s'}}></div>
       </div>
 
       <div className="max-w-7xl mx-auto responsive-container relative z-10">
@@ -48,14 +83,9 @@ const HomeScreen = ({
         <div className="py-8 sm:py-12 lg:py-16">
           {/* Hero Section */}
           <div className="text-center mb-12 sm:mb-16">
-            <div className="relative">
-              <h1 className="responsive-heading font-bold text-white mb-4 sm:mb-6">
-                Learning Hub
-              </h1>
-              <div className="absolute -top-4 -right-4 text-white/20">
-                <Sparkles size={24} className="floating-element" />
-              </div>
-            </div>
+            <h1 className="responsive-heading font-bold text-white mb-4 sm:mb-6">
+              Learning Hub
+            </h1>
             <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 responsive-text">
               Master the future of AI development with our comprehensive course
             </p>
@@ -74,7 +104,7 @@ const HomeScreen = ({
               <div className="text-gray-400 text-sm">Progress</div>
             </div>
             <div className="glass-card p-4 sm:p-6 text-center card-hover-effect">
-              <Sparkles className="mx-auto mb-2 text-white/80" size={24} />
+              <div className="w-6 h-6 bg-white/20 rounded-full mx-auto mb-2"></div>
               <div className="text-xl sm:text-2xl font-bold text-white">{5 - completedChapters.length}</div>
               <div className="text-gray-400 text-sm">Remaining</div>
             </div>
