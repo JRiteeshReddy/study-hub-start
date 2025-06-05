@@ -49,7 +49,7 @@ const HomeScreen = ({
           {/* Hero Section */}
           <div className="text-center mb-12 sm:mb-16">
             <div className="relative">
-              <h1 className="responsive-heading font-bold text-white mb-4 sm:mb-6 hero-text">
+              <h1 className="responsive-heading font-bold text-white mb-4 sm:mb-6">
                 Learning Hub
               </h1>
               <div className="absolute -top-4 -right-4 text-white/20">
