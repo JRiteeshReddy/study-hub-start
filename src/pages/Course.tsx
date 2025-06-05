@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -22,6 +22,11 @@ const Course = () => {
   
   const completedChapters = getCompletedChapters();
   const progressPercentage = (completedChapters.length / 5) * 100;
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleStartCourse = () => {
     const nextChapter = completedChapters.length < 5 ? completedChapters.length + 1 : 1;
