@@ -39,58 +39,99 @@ const TermsAndConditions = () => {
           <div className="glass-card p-8">
             <div className="prose prose-invert max-w-none">
               <div className="space-y-6 text-gray-300 leading-relaxed">
+                <div className="mb-8">
+                  <h1 className="text-4xl font-bold text-white mb-4">Terms and Conditions</h1>
+                  <p className="text-lg font-semibold text-gray-400 mb-6">
+                    <strong>Last updated: [8th June 2025]</strong>
+                  </p>
+                  <p className="text-lg">
+                    Welcome to DevPanda!
+                  </p>
+                  <p>
+                    By using our platform, you agree to the following Terms and Conditions. If you do not agree with any part of these terms, please refrain from using our services.
+                  </p>
+                </div>
+
+                <hr className="border-gray-600 my-8" />
+
                 <section>
                   <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
                   <p>
-                    By accessing and using DevPanda's AI development course platform, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                    By accessing and using DevPanda's AI development course platform, you accept and agree to be bound by these terms. Continued use of the platform constitutes your agreement to all current and future versions of these terms.
                   </p>
                 </section>
+
+                <hr className="border-gray-600 my-6" />
 
                 <section>
                   <h2 className="text-2xl font-semibold text-white mb-4">2. Use License</h2>
                   <p>
-                    Permission is granted to temporarily download one copy of the materials on DevPanda's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                    You are granted a limited, non-transferable license to temporarily download one copy of the course materials for <strong>personal, non-commercial</strong> viewing only.
                   </p>
-                  <ul className="list-disc list-inside mt-4 space-y-2">
-                    <li>modify or copy the materials</li>
-                    <li>use the materials for any commercial purpose or for any public display</li>
-                    <li>attempt to reverse engineer any software contained on the website</li>
-                    <li>remove any copyright or other proprietary notations from the materials</li>
+                  <p className="mt-4 mb-3">Under this license, you may not:</p>
+                  <ul className="list-disc list-inside space-y-2 ml-4">
+                    <li>Modify or copy the materials</li>
+                    <li>Use the materials for any commercial or public display</li>
+                    <li>Attempt to reverse engineer any software on the site</li>
+                    <li>Remove any copyright or proprietary notations</li>
                   </ul>
+                  <p className="mt-4">
+                    Violation of this license may result in immediate termination of your access.
+                  </p>
                 </section>
+
+                <hr className="border-gray-600 my-6" />
 
                 <section>
                   <h2 className="text-2xl font-semibold text-white mb-4">3. Course Access and Content</h2>
                   <p>
-                    DevPanda provides educational content related to AI development. Course materials are provided for educational purposes only. We reserve the right to modify, suspend, or discontinue any part of our service at any time.
+                    DevPanda provides curated educational content focused on AI and related technologies. We reserve the right to update, modify, suspend, or discontinue any course or feature at any time without notice.
                   </p>
                 </section>
+
+                <hr className="border-gray-600 my-6" />
 
                 <section>
                   <h2 className="text-2xl font-semibold text-white mb-4">4. User Accounts</h2>
                   <p>
-                    When creating an account with us, you must provide information that is accurate, complete, and current at all times. You are responsible for safeguarding the password and for all activities that occur under your account.
+                    When creating a DevPanda account, you must provide accurate, complete, and current information. You are responsible for maintaining the confidentiality of your password and for all activity under your account. Notify us immediately if you suspect unauthorized access.
                   </p>
                 </section>
+
+                <hr className="border-gray-600 my-6" />
 
                 <section>
                   <h2 className="text-2xl font-semibold text-white mb-4">5. Disclaimer</h2>
                   <p>
-                    The materials on DevPanda's website are provided on an 'as is' basis. DevPanda makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                    All materials and content are provided "as is." DevPanda makes no warranties, expressed or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
                   </p>
                 </section>
 
+                <hr className="border-gray-600 my-6" />
+
                 <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">6. Limitations</h2>
+                  <h2 className="text-2xl font-semibold text-white mb-4">6. Limitations of Liability</h2>
                   <p>
-                    In no event shall DevPanda or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on DevPanda's website.
+                    In no event shall DevPanda or its suppliers be liable for any indirect, incidental, or consequential damages (including data loss, profit loss, or business interruption) arising out of the use or inability to use the platform, even if DevPanda has been notified of the possibility of such damage.
                   </p>
                 </section>
 
+                <hr className="border-gray-600 my-6" />
+
                 <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">7. Contact Information</h2>
+                  <h2 className="text-2xl font-semibold text-white mb-4">7. Governing Law</h2>
                   <p>
-                    If you have any questions about these Terms and Conditions, please contact us through our support channels.
+                    These terms shall be governed and interpreted in accordance with the laws of <strong>India</strong>, with jurisdiction under the courts of <strong>Bangalore, Karnataka</strong>.
+                  </p>
+                </section>
+
+                <hr className="border-gray-600 my-6" />
+
+                <section>
+                  <h2 className="text-2xl font-semibold text-white mb-4">8. Contact Information</h2>
+                  <p>
+                    For any questions about these Terms, reach out to us at:<br />
+                    <strong>jriteeshreddy@gmail.com</strong>
                   </p>
                 </section>
               </div>
