@@ -40,69 +40,86 @@ const PrivacyPolicy = () => {
             <div className="prose prose-invert max-w-none">
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">1. Information We Collect</h2>
-                  <p>
-                    We collect information you provide directly to us, such as when you create an account, enroll in our courses, or contact us for support. This may include your name, email address, and course progress data.
-                  </p>
+                  <h2 className="text-2xl font-semibold text-white mb-4">1. 📥 Information We Collect</h2>
+                  <p>We collect information you provide directly to us, including:</p>
+                  <ul className="list-disc list-inside mt-4 space-y-2">
+                    <li>Your name and email address (during signup or when contacting support)</li>
+                    <li>Course enrollment and progress data</li>
+                    <li>Any feedback, questions, or messages submitted via forms</li>
+                  </ul>
+                  <p className="mt-4">We may also collect technical data like your device info, IP address, and browser type.</p>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">2. How We Use Your Information</h2>
-                  <p>We use the information we collect to:</p>
+                  <h2 className="text-2xl font-semibold text-white mb-4">2. ⚙️ How We Use Your Information</h2>
+                  <p>Your data helps us:</p>
                   <ul className="list-disc list-inside mt-4 space-y-2">
-                    <li>Provide, maintain, and improve our educational services</li>
-                    <li>Process course enrollments and track your progress</li>
-                    <li>Send you technical notices and support messages</li>
-                    <li>Respond to your comments and questions</li>
-                    <li>Analyze usage patterns to improve our platform</li>
+                    <li>Provide and maintain our educational services</li>
+                    <li>Track your course progress</li>
+                    <li>Process enrollments and access</li>
+                    <li>Respond to your questions or support requests</li>
+                    <li>Improve platform performance and user experience</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">3. Information Sharing</h2>
-                  <p>
-                    We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy. We may share your information in the following circumstances:
-                  </p>
+                  <h2 className="text-2xl font-semibold text-white mb-4">3. 🔄 Information Sharing</h2>
+                  <p>We do not sell or rent your personal data. We only share it:</p>
                   <ul className="list-disc list-inside mt-4 space-y-2">
-                    <li>With service providers who assist us in operating our platform</li>
-                    <li>To comply with legal obligations or protect our rights</li>
-                    <li>In connection with a business transfer or acquisition</li>
+                    <li>With trusted service providers (e.g., hosting, analytics, payment)</li>
+                    <li>To comply with applicable laws or legal processes</li>
+                    <li>In the event of a merger, acquisition, or business transfer</li>
                   </ul>
+                  <p className="mt-4">All shared data is handled securely and only for operational needs.</p>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">4. Data Security</h2>
+                  <h2 className="text-2xl font-semibold text-white mb-4">4. 🔐 Data Security</h2>
+                  <p>We use reasonable and industry-standard security practices to protect your data:</p>
+                  <ul className="list-disc list-inside mt-4 space-y-2">
+                    <li>Password encryption</li>
+                    <li>Secure storage on Supabase</li>
+                    <li>Access limited to authorized personnel</li>
+                  </ul>
+                  <p className="mt-4">While we do our best, no system is 100% secure, so use the platform at your discretion.</p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-semibold text-white mb-4">5. 🍪 Cookies & Tracking</h2>
+                  <p>We use cookies and similar technologies to:</p>
+                  <ul className="list-disc list-inside mt-4 space-y-2">
+                    <li>Maintain your login session</li>
+                    <li>Analyze user behavior and site performance</li>
+                    <li>Personalize your experience</li>
+                  </ul>
+                  <p className="mt-4">You can control cookies via your browser. Some features may not work properly if disabled.</p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-semibold text-white mb-4">6. 🧍 Your Rights</h2>
+                  <p>You can:</p>
+                  <ul className="list-disc list-inside mt-4 space-y-2">
+                    <li>Access, update, or delete your personal data</li>
+                    <li>Request account deletion</li>
+                    <li>Opt out of certain emails or messages</li>
+                  </ul>
+                  <p className="mt-4">To request any of the above, email us at jriteeshreddy@gmail.com. We'll respond within a reasonable time frame.</p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl font-semibold text-white mb-4">7. 📢 Changes to This Policy</h2>
                   <p>
-                    We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.
+                    We may revise this Privacy Policy from time to time. When we do, we'll update the "Effective Date" and notify users if the changes are significant.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">5. Cookies and Tracking</h2>
-                  <p>
-                    We use cookies and similar technologies to enhance your experience on our platform, analyze usage patterns, and provide personalized content. You can control cookie preferences through your browser settings.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">6. Your Rights</h2>
-                  <p>
-                    You have the right to access, update, or delete your personal information. You may also opt out of certain communications from us. To exercise these rights, please contact us through our support channels.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">7. Changes to This Policy</h2>
-                  <p>
-                    We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the effective date.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-semibold text-white mb-4">8. Contact Us</h2>
-                  <p>
-                    If you have any questions about this privacy policy, please contact us through our support channels.
-                  </p>
+                  <h2 className="text-2xl font-semibold text-white mb-4">8. 📬 Contact Us</h2>
+                  <p>If you have questions, concerns, or feedback about this Privacy Policy, reach out to:</p>
+                  <div className="mt-4 space-y-2">
+                    <p><strong>Email:</strong> jriteeshreddy@gmail.com</p>
+                    <p><strong>Support Hours:</strong> Monday to Friday, 9 AM – 6 PM IST</p>
+                  </div>
                 </section>
               </div>
             </div>
