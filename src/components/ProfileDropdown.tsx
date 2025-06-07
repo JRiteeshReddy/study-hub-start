@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useProgress } from '@/hooks/useProgress';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, User, BarChart, LogOut, Settings } from 'lucide-react';
+import { ChevronDown, User, BarChart, LogOut, Settings, FileText } from 'lucide-react';
 
 const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +16,11 @@ const ProfileDropdown = () => {
 
   const handleSettings = () => {
     navigate('/settings');
+    setIsOpen(false);
+  };
+
+  const handlePolicies = () => {
+    navigate('/policies');
     setIsOpen(false);
   };
 
@@ -86,6 +91,14 @@ const ProfileDropdown = () => {
               >
                 <Settings size={16} className="text-white" />
                 <span className="text-white">Settings</span>
+              </button>
+
+              <button
+                onClick={handlePolicies}
+                className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-left"
+              >
+                <FileText size={16} className="text-white" />
+                <span className="text-white">Policies</span>
               </button>
               
               <hr className="my-2 border-white/10" />
